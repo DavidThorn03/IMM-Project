@@ -6,9 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     
     private Rigidbody enemyRb;
-    private GameObject playerGoal;
-    private PlayerController smScript;
-    
+    public GameObject player;
 
     public float speed;
 
@@ -16,29 +14,21 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        playerGoal = GameObject.Find("Player");
-        smScript = GameObject.Find("Spawn Manager").GetComponent<PlayerController>();
-        speed = smScript.enemySpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Set enemy direction towards player and move there
-        Vector3 lookDirection = (playerGoal.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * speed * Time.deltaTime);
-
+        
     }
 
     private void OnCollisionEnter(Collision other)
     {
         // If enemy collides with either buffalo, destroy it
-        if (other.gameObject.name == "Enemy")
+        if (other.gameObject.name == "Player")
         {
-            Destroy(gameObject);
+
         } 
-
-
     }
 
 }

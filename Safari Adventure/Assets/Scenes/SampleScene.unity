@@ -571,10 +571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac730d3bdffee34bb32e17d072ba601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 60
   isOnGround: 1
   enemySpeed: 50
-  plane: {fileID: 0}
 --- !u!54 &1252512662
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -583,7 +581,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252512660}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 70
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -621,8 +619,57 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
+<<<<<<< Updated upstream
   m_Size: {x: 1, y: 2.913259, z: 0.75115895}
   m_Center: {x: 0, y: 1.4538219, z: -0.02984865}
+=======
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1853732156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853732158}
+  - component: {fileID: 1853732157}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1853732157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853732156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c703375f0c4df44b810b6579737520c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1853732158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853732156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4661818, y: 3.3561258, z: 2.5465765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -631,4 +678,8 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1042599149}
   - {fileID: 1103546052}
+<<<<<<< Updated upstream
   - {fileID: 96070709}
+=======
+  - {fileID: 1853732158}
+>>>>>>> Stashed changes
