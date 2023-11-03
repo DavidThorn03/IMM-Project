@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 10.0f;
     private float xRange = 10;
     private Rigidbody playerRB;
-    private float jumpForce = 800;
+    private float jumpForce = 600;
     public bool isOnGround = true;
     public float enemySpeed = 50;
 
@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision){    
         if(collision.gameObject.CompareTag("Ground")){
             isOnGround = true;
+        }
+        else if(collision.gameObject.CompareTag("Enemy")){
+            Debug.Log("GameOver");
         }
     }
 }

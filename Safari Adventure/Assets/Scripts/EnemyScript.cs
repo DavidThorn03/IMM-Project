@@ -24,11 +24,8 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        // If enemy collides with either buffalo, destroy it
-        if (other.gameObject.name == "Player")
-        {
-
-        } 
+        
+        
     }
 
 }
