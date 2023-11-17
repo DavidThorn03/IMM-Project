@@ -20,19 +20,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(transform.position.x < -xRange){
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
-        }
-        if(transform.position.x > xRange){
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-        }
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-        
-        if(isOnGround && Input.GetKeyDown(KeyCode.UpArrow)){
-            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
-        }
+            if(transform.position.x < -xRange){
+                transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+            }
+            if(transform.position.x > xRange){
+                transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+            }
+            if(isOnGround){
+                horizontalInput = Input.GetAxis("Horizontal");
+                transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+            }
+            if(isOnGround && Input.GetKeyDown(KeyCode.UpArrow)){
+                playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isOnGround = false;
+            }
     }
     private void OnCollisionEnter(Collision collision){    
         if(collision.gameObject.CompareTag("Ground")){
