@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRB;
     private float jumpForce = 600;
     public bool isOnGround = true;
-    public float enemySpeed = 50;
-
+    private GameManager gm;
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
+        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
 
@@ -26,11 +26,11 @@ public class PlayerController : MonoBehaviour
             if(transform.position.x > xRange){
                 transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
             }
-            if(isOnGround){
+            if(isOnGround && gm.isGameActive){
                 horizontalInput = Input.GetAxis("Horizontal");
                 transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
             }
-            if(isOnGround && Input.GetKeyDown(KeyCode.UpArrow)){
+            if(isOnGround && gm.isGameActive && Input.GetKeyDown(KeyCode.UpArrow)){
                 playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
             }
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(collision.gameObject.CompareTag("Enemy")){
             Debug.Log("GameOver");
+            gm.GameOver();
         }
     }
 

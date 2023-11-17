@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject player;
 
     public float speed;
+    private float lowerBounds = -10;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,10 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.z < lowerBounds)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
