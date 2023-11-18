@@ -10,20 +10,20 @@ public class MainMenu : MonoBehaviour
     public void PlayBtn()
     {
         Debug.Log("Play Game");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    public void QuitBtn()
-    {
-        Debug.Log("Quit Game");
-        Application.Quit();
-    }
-
     public void InstBtn(int sceneID)
     {
-        Debug.Log("Inststuctions");
+        Debug.Log("Instructions");
+        SceneManager.LoadScene(sceneID);
+    }
+
+    public void BackBtn(int sceneID)
+    {
+        Debug.Log("Main Menu");
         SceneManager.LoadScene(sceneID);
     }
 }
