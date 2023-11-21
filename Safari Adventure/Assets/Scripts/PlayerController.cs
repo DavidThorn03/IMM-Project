@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     private float jumpForce = 600;
     public bool isOnGround = true;
     private GameManager gm;
+    
+    //AD
+    private bool hasDestroyAbility = false;
+    
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
@@ -34,7 +39,15 @@ public class PlayerController : MonoBehaviour
                 playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
             }
+            
+            //AD
+        if (hasDestroyAbility && Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            DestroyObjects();
+        }
     }
+
     private void OnCollisionEnter(Collision collision){    
         if(collision.gameObject.CompareTag("Ground")){
             isOnGround = true;
@@ -45,5 +58,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+        //AD
+        public void EnableDestroyAbility()
+    {
+        hasDestroyAbility = true;
+    }
+    private void DestroyObjects()
+    {
+        Destroy(GameObject.FindWithTag("Enemy"));
+    }
    
 }
