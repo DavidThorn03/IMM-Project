@@ -8,14 +8,14 @@ public class SpawnManager : MonoBehaviour
     private float spawnRangex = 10;
     private float spawnPosz = 20;
     private float startDelay = 1.5f;
-    private float spawnInterval = 1f;
+    private float spawnInterval;
     private GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        InvokeRepeating("SpawnEnemy", startDelay, spawnInterval);
+        Invoke("SpawnEnemy", startDelay);
     }
 
     // Update is called once per frame
@@ -30,5 +30,7 @@ public class SpawnManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangex, spawnRangex), 2, spawnPosz);
         Instantiate(enemy, spawnPos, enemy.transform.rotation);
         }
+        spawnInterval = Random.Range(1.5f / (1 + (gm.score / 5)), 3.5f / (1 + (gm.score / 5)));
+        Invoke("SpawnEnemy", spawnInterval);
     }
 }

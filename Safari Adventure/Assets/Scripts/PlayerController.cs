@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
             //AD
         if (hasDestroyAbility && Input.GetKeyDown(KeyCode.Space))
         {
-            
             DestroyObjects();
         }
     }
@@ -59,7 +58,7 @@ public class PlayerController : MonoBehaviour
     }
 
         //AD
-        public void EnableDestroyAbility()
+    public void EnableDestroyAbility()
     {
         hasDestroyAbility = true;
     }
