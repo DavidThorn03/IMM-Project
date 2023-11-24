@@ -26,6 +26,11 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Main Menu");
         SceneManager.LoadScene(sceneID);
     }
+    //DT
+    public void GitHubBtn()
+    {
+        Application.OpenURL("https://github.com/DavidThorn03/IMM-Project.git");
+    }
 }
 
 
